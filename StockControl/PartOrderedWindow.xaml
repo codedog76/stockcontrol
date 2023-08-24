@@ -1,0 +1,95 @@
+﻿<Window x:Class="StockControl.PartOrderedWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StockControl"
+        mc:Ignorable="d"
+        Title="Part Ordered"
+        SizeToContent="WidthAndHeight" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="5">
+        <DockPanel Margin="0,3,0,8">
+            <TextBlock DockPanel.Dock="Left" Text="Part Number:" VerticalAlignment="Center" Margin="7,0,0,0" HorizontalAlignment="Left" />
+            <ComboBox
+                Name="Part_Ordered_Part_Number_ComboBox"
+                DockPanel.Dock="Right" Margin="40,0,5,0" Width="200"
+                HorizontalAlignment="Right" VerticalAlignment="Center"
+                IsEditable="True"
+                ItemsSource="{DynamicResource StockPartCollection}"
+                SelectedValuePath="Part_Number"
+                DisplayMemberPath="Part_Number" SelectionChanged="Part_Ordered_Part_Number_ComboBox_SelectionChanged"
+                PreviewKeyDown="ComboBox_PreviewKeyDown" Padding="3,5">
+            </ComboBox>
+        </DockPanel>
+        <TextBlock DockPanel.Dock="Right" Visibility="Collapsed" Width="200" Name="Part_Ordered_Part_Number_Error_TextBlock" Text="Placeholder text" TextWrapping="Wrap" Foreground="Red" HorizontalAlignment="Right" Margin="0,0,5,3" />
+
+        <DockPanel Margin="0,0,0,8">
+            <TextBlock DockPanel.Dock="Left" Text="Part Number:" VerticalAlignment="Center" Margin="7,0,0,0" HorizontalAlignment="Left" />
+            <ComboBox
+                Name="Part_Ordered_Part_Description_ComboBox"
+                DockPanel.Dock="Right" Margin="40,0,5,0" Width="200"
+                HorizontalAlignment="Right" VerticalAlignment="Center"
+                IsEditable="True"
+                ItemsSource="{DynamicResource StockPartCollection}"
+                SelectedValuePath="Part_Number"
+                DisplayMemberPath="Part_Description" SelectionChanged="Part_Ordered_Part_Description_ComboBox_SelectionChanged"
+                PreviewKeyDown="ComboBox_PreviewKeyDown" Padding="3,5">
+            </ComboBox>
+        </DockPanel>
+        <TextBlock DockPanel.Dock="Right" Visibility="Collapsed" Width="200" Name="Part_Ordered_Part_Description_Error_TextBlock" Text="Placeholder text" TextWrapping="Wrap" Foreground="Red" HorizontalAlignment="Right" Margin="0,0,5,3" />
+
+        <DockPanel Margin="0,0,0,8">
+            <TextBlock DockPanel.Dock="Left" Text="Part Supplier:" VerticalAlignment="Center" Margin="7,0,0,0" HorizontalAlignment="Left" />
+            <TextBox Name="Part_Ordered_Part_Supplier_TextBox" VerticalContentAlignment="Center" DockPanel.Dock="Right" Margin="40,0,5,0" Width="200" HorizontalAlignment="Right" VerticalAlignment="Center" PreviewKeyDown="TextBox_PreviewKeyDown" GotFocus="TextBox_GotFocus" Padding="1,5" />
+        </DockPanel>
+        <TextBlock DockPanel.Dock="Right" Visibility="Collapsed" Width="200" Name="Part_Ordered_Part_Supplier_Error_TextBlock" Text="Placeholder text" TextWrapping="Wrap" Foreground="Red" HorizontalAlignment="Right" Margin="0,0,5,3" />
+
+        <DockPanel Margin="0,0,0,8">
+            <TextBlock DockPanel.Dock="Left" Text="Part Cost Price:" VerticalAlignment="Center" Margin="7,0,0,0" HorizontalAlignment="Left" />
+            <TextBox Name="Part_Ordered_Part_Cost_Price_TextBox" VerticalContentAlignment="Center" DockPanel.Dock="Right" Margin="40,0,5,0" Width="200" HorizontalAlignment="Right" VerticalAlignment="Center" PreviewKeyDown="TextBox_PreviewKeyDown" GotFocus="TextBox_GotFocus" Padding="1,5" TextChanged="Part_Ordered_Part_Cost_Price_TextBox_TextChanged" />
+        </DockPanel>
+        <TextBlock DockPanel.Dock="Right" Visibility="Collapsed" Width="200" Name="Part_Ordered_Part_Cost_Price_Error_TextBlock" Text="Placeholder text" TextWrapping="Wrap" Foreground="Red" HorizontalAlignment="Right" Margin="0,0,5,3" />
+
+        <DockPanel Margin="0,0,0,8">
+            <TextBlock DockPanel.Dock="Left" Text="Part Markup Percentage:" VerticalAlignment="Center" Margin="7,0,0,0" HorizontalAlignment="Left" />
+            <TextBox Name="Part_Ordered_Part_Markup_Perc_TextBox" DockPanel.Dock="Right" Padding="1,5" Margin="40,0,5,0" Width="200" VerticalContentAlignment="Center" HorizontalAlignment="Right" VerticalAlignment="Center" GotFocus="TextBox_GotFocus" PreviewKeyDown="TextBox_PreviewKeyDown" TextChanged="Part_Ordered_Part_Markup_Perc_TextBox_TextChanged" />
+        </DockPanel>
+        <TextBlock DockPanel.Dock="Right" Visibility="Collapsed" Width="200" Name="Part_Ordered_Part_Markup_Perc_Error_TextBlock" Text="Placeholder text" TextWrapping="Wrap" Foreground="Red" HorizontalAlignment="Right" Margin="0,0,5,3" />
+
+        <DockPanel Margin="0,0,0,8" VerticalAlignment="Center" >
+            <TextBlock DockPanel.Dock="Left" Text="Part Sell Price:" VerticalAlignment="Center" Margin="7,0,0,0" />
+            <TextBox DockPanel.Dock="Right" Padding="1,5" VerticalContentAlignment="Center" Name="Part_Ordered_Part_Sell_Price_TextBox" VerticalAlignment="Center" Margin="20,0,5,0" GotFocus="TextBox_GotFocus" PreviewKeyDown="TextBox_PreviewKeyDown" Width="200" HorizontalAlignment="Right" TextChanged="Part_Ordered_Part_Sell_Price_TextBox_TextChanged" />
+        </DockPanel>
+        <TextBlock Visibility="Collapsed" Name="Part_Ordered_Part_Sell_Price_Error_TextBlock" Text="Placeholder text" Margin="0,0,5,0" TextWrapping="Wrap" Foreground="Red" HorizontalAlignment="Right" Width="200" />
+
+        <DockPanel Name="CheckBoxPanel" Margin="0,5">
+            <TextBlock DockPanel.Dock="Left" Text="Fixed Sell Price:" VerticalAlignment="Center" Margin="7,0,0,0" />
+            <StackPanel Margin="20,0,5,0" Width="190" HorizontalAlignment="Right">
+                <Viewbox DockPanel.Dock="Right" Height="{Binding Path=ActualHeight, ElementName=CheckBoxPanel}" HorizontalAlignment="Left">
+                    <CheckBox Name="Part_Ordered_Part_Sell_Price_Fixed_CheckBox" />
+                </Viewbox>
+            </StackPanel>
+        </DockPanel>
+        
+        <DockPanel Margin="0,8,0,8">
+            <TextBlock DockPanel.Dock="Left" Text="Recommended Order Quantity:" VerticalAlignment="Center" Margin="7,0,0,0" HorizontalAlignment="Left" />
+            <TextBox Name="Part_Ordered_Recommended_Order_Quantity_TextBox" IsEnabled="False" VerticalContentAlignment="Center" DockPanel.Dock="Right" Margin="40,0,5,0" Width="200" HorizontalAlignment="Right" VerticalAlignment="Center" PreviewKeyDown="TextBox_PreviewKeyDown" GotFocus="TextBox_GotFocus" Padding="1,5" />
+        </DockPanel>       
+
+        <DockPanel Margin="0,8,0,8">
+            <TextBlock DockPanel.Dock="Left" Text="Part Ordered Quantity:" VerticalAlignment="Center" Margin="7,0,0,0" HorizontalAlignment="Left" />
+            <TextBox Name="Part_Ordered_Part_Quantity_TextBox" Text="0" VerticalContentAlignment="Center" DockPanel.Dock="Right" Margin="40,0,5,0" Width="200" HorizontalAlignment="Right" VerticalAlignment="Center" PreviewKeyDown="TextBox_PreviewKeyDown" GotFocus="TextBox_GotFocus" Padding="1,5" />
+        </DockPanel>
+        <TextBlock DockPanel.Dock="Right" Visibility="Collapsed" Width="200" Name="Part_Ordered_Part_Quantity_Error_TextBlock" Text="Placeholder text" TextWrapping="Wrap" Foreground="Red" HorizontalAlignment="Right" Margin="0,0,5,3" />
+        
+        <TextBlock Visibility="Collapsed" Name="Part_Ordered_Error_TextBlock" Text="Placeholder text" Margin="0,0,5,0" TextWrapping="Wrap" Foreground="Red" HorizontalAlignment="Right" Width="200" />
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,5,0,0">
+            <Button Name="Part_Ordered_Next_Button" Content="Next" Padding="15,5" Margin="0,5" Click="Part_Ordered_Next_Button_Click" />
+            <Button Name="Part_Ordered_Ok_Button" Content="Ok" Padding="15,5" Margin="5,5,0,5" Click="Part_Ordered_Ok_Button_Click" />            
+            <Button Name="Part_Ordered_Cancel_Button" Content="Cancel" Padding="15,5" Margin="5" Click="Part_Ordered_Cancel_Button_Click" />
+        </StackPanel>
+
+    </StackPanel>
+</Window>

@@ -1,0 +1,31 @@
+﻿<Window x:Class="StockControl.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StockControl"
+        mc:Ignorable="d"
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        PreviewKeyDown="Window_PreviewKeyDown"
+        Title="Settings">
+    <DockPanel Margin="5">
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,5,0,0">
+            <Button Name="Settings_Ok_Button" Content="Ok" Padding="15,5" Margin="5" Click="Settings_Ok_Button_Click" />
+        </StackPanel>
+
+        <GroupBox Header="Appearance" Padding="3">
+            <UniformGrid Columns="2" VerticalAlignment="Center" MinWidth="200">
+                <TextBlock Text="Font Size:" VerticalAlignment="Center" />
+                <ComboBox SelectedValuePath="Content" Padding="7" Name="Settings_Font_Size_ComboBox" VerticalAlignment="Center" SelectionChanged="Settings_Font_Size_ComboBox_SelectionChanged" >
+                    <ComboBoxItem Name="cbi0" Content="12" />
+                    <ComboBoxItem Name="cbi1" Content="14" />
+                    <ComboBoxItem Name="cbi2" Content="16" />
+                    <ComboBoxItem Name="cbi3" Content="18" />
+                </ComboBox>
+            </UniformGrid>
+        </GroupBox>
+
+    </DockPanel>
+</Window>

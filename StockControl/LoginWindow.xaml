@@ -1,0 +1,24 @@
+﻿<Window x:Class="StockControl.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StockControl"
+        mc:Ignorable="d"
+        SizeToContent="Height"
+        Title="Login" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <StackPanel Orientation="Vertical" Margin="5">
+        <TextBlock Text="Please Enter Login Details" HorizontalAlignment="Center" Margin="0,5,0,10"/>
+        
+        <StackPanel>
+            <TextBox VerticalContentAlignment="Center" Name="Login_Username_Text" Margin="20,0" GotFocus="Username_Text_GotFocus" LostFocus="Username_Text_LostFocus" Text="Username" Foreground="Gray" PreviewKeyDown="Username_Text_PreviewKeyDown" Padding="1,5" />
+            <TextBlock Name="Login_Username_Error_Text" Text="Placeholder" Margin="20,0" Visibility="Collapsed" Foreground="Red" />
+            <TextBox VerticalContentAlignment="Center" Name="Login_Password_Text_Hint" Margin="20,10,20,0" GotFocus="Password_Text_Hint_GotFocus" Text="Password" Foreground="Gray" Padding="1,5" />
+            <PasswordBox VerticalContentAlignment="Center" Name="Login_Password_Text" Margin="20,10,20,0" LostFocus="Password_Text_LostFocus" GotFocus="Password_Text_GotFocus" Visibility="Collapsed" PreviewKeyDown="Password_Text_PreviewKeyDown" Padding="1,5" />
+            <TextBlock Name="Login_Password_Error_Text" Text="Placeholder" Margin="20,0" Visibility="Collapsed" Foreground="Red" TextWrapping="Wrap" />            
+            <CheckBox Name="Login_Remember_Me_Check_Box" Content="Remember me" Margin="20,10,20,0" PreviewKeyDown="Login_Remember_Me_Check_Box_PreviewKeyDown" VerticalContentAlignment="Center" />
+        </StackPanel>
+        <Button Name="Login_Button" Content="Login" Margin="20,15,20,5" Click="Login_Button_Click" Padding="1,5" />
+        <Button Name="Exit_Button" Content="Exit" Margin="20,5,20,20" Click="Exit_Button_Click" Padding="1,5" />
+    </StackPanel>
+</Window>

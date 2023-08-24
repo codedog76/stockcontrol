@@ -1,0 +1,72 @@
+﻿<Application x:Class="StockControl.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:StockControl"
+             StartupUri="MainWindow.xaml"
+             Exit="Application_Exit">
+    <Application.Resources>
+        <local:StockPartCollection x:Key="StockPartCollection">
+        </local:StockPartCollection>
+        <local:StockPartCollection x:Key="StockListCollection">
+        </local:StockPartCollection>       
+        <local:JobCollection x:Key="JobCollection">            
+        </local:JobCollection>
+        <local:JobCollection x:Key="JobListCollection">
+        </local:JobCollection>
+        <local:LogCollection x:Key="LogCollection">
+        </local:LogCollection>
+        <local:LogCollection x:Key="LogListCollection">
+        </local:LogCollection>
+        <local:PurchaseOrderCollection x:Key="PurchaseOrderCollection">
+        </local:PurchaseOrderCollection>
+        <local:JobPartsCollection x:Key="JobPartsCollection">            
+        </local:JobPartsCollection>
+        
+        <Style TargetType="{x:Type DataGridCell}">
+            <Setter Property="IsTabStop" Value="False" />
+            <Setter Property="Focusable" Value="False" />
+        </Style>
+
+        <Style TargetType="DataGridRow" x:Key="LogRowColor">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Log_Performed_Action}" Value="Check In">
+                    <Setter Property="Background" Value="LightGreen" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Log_Performed_Action}" Value="Check Out">
+                    <Setter Property="Background" Value="#F88379" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Log_Performed_Action}" Value="Logged In">
+                    <Setter Property="Background" Value="#ADD8E6" />
+                </DataTrigger> 
+                <DataTrigger Binding="{Binding Log_Performed_Action}" Value="Logged Out">
+                    <Setter Property="Background" Value="#FFEB46" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Log_Performed_Action}" Value="Part Returned">
+                    <Setter Property="Background" Value="#EDC9AF" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Log_Performed_Action}" Value="Part Ordered">
+                    <Setter Property="Background" Value="#EDC9AF" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Log_Performed_Action}" Value="Part Deleted">
+                    <Setter Property="Background" Value="#ACACAC" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Log_Performed_Action}" Value="Part Updated">
+                    <Setter Property="Background" Value="#D8BFD8" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Log_Performed_Action}" Value="New Part">
+                    <Setter Property="Background" Value="#ACACAC" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Log_Performed_Action}" Value="Job Deleted">
+                    <Setter Property="Background" Value="#ACACAC" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Log_Performed_Action}" Value="Job Updated">
+                    <Setter Property="Background" Value="#D8BFD8" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Log_Performed_Action}" Value="New Job">
+                    <Setter Property="Background" Value="#ACACAC" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>   
+
+    </Application.Resources>
+</Application>

@@ -1,0 +1,43 @@
+﻿<Window x:Class="StockControl.PurchaseOrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StockControl"
+        mc:Ignorable="d"
+        Title="Purchase Order"
+        ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen">    
+    <DockPanel>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
+            <TextBlock Text="Total Recommended Order Quantity:" VerticalAlignment="Center" Margin="0,0,5,0" FontWeight="Bold" />
+            <TextBlock Name="Purchase_Order_Total_Recommended_Order_Quantity_TextBlock" Text="Placeholder" VerticalAlignment="Center" Margin="0,0,20,0" />
+            <TextBlock Text="Parts Total Cost Price:" VerticalAlignment="Center" Margin="0,0,5,0" FontWeight="Bold" />
+            <TextBlock Name="Purchase_Order_Total_Cost_Price_TextBlock" Text="Placeholder" VerticalAlignment="Center" Margin="0,0,20,0" />
+            <Button Name="Purchase_Order_Save_Button" Content="Save" Padding="15,5" Margin="5,10,10,10" Click="Purchase_Order_Save_Button_Click" />
+            <Button Name="Purchase_Order_Ok_Button" Content="Ok" Padding="15,5" Margin="5,10,10,10" Click="Purchase_Order_Ok_Button_Click" />
+        </StackPanel>
+        
+        <DataGrid DockPanel.Dock="Top" Name="Purchase_Order_DataGrid" ItemsSource="{DynamicResource PurchaseOrderCollection}" AutoGenerateColumns="False" CanUserAddRows="false" PreviewMouseRightButtonDown="Purchase_Order_DataGrid_PreviewMouseRightButtonDown">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Part Number" Binding="{Binding Path=Part_Number}" Width="120" />
+                <DataGridTextColumn Header="Description" Binding="{Binding Path=Part_Description}" Width="120" />
+                <DataGridTextColumn Header="Supplier" Binding="{Binding Path=Part_Supplier}" />
+                <DataGridTextColumn Header="Current Qty" Binding="{Binding Path=Part_Current_Quantity}" />
+                <DataGridTextColumn Header="Ordered Qty" Binding="{Binding Path=Part_Ordered_Quantity}" />
+                <DataGridTextColumn Header="Cost Price" Binding="{Binding Path=Part_Cost_Price}" />
+                <DataGridTextColumn Header="Recommended Order Qty" Binding="{Binding Path=Part_To_Order_Quantity}" />
+                <DataGridTextColumn Header="Total Cost Price" Binding="{Binding Path=Part_Total_Cost_Price}" />                
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu >
+                    <MenuItem Name="Purchase_Order_Refresh_MenuItem" Header="Refresh" Click="MenuItem_Click"  />
+                    <MenuItem Name="Purchase_Order_Copy_MenuItem" Header="Copy" Click="MenuItem_Click" />
+                    <Separator Name="Purchase_Order_Separator" />
+                    <MenuItem Name="Purchase_Order_Part_Ordered_MenuItem" Header="Part Ordered" Click="MenuItem_Click"  />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+
+
+    </DockPanel>
+</Window>

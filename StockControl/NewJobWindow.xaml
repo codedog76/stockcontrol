@@ -1,0 +1,25 @@
+﻿<Window x:Class="StockControl.NewJobWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StockControl"
+        mc:Ignorable="d"
+        Title="New Job" 
+        SizeToContent="WidthAndHeight" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="5">
+        
+        <DockPanel Margin="0,3,0,8">
+            <TextBlock DockPanel.Dock="Left" Text="Job Number:" VerticalAlignment="Center" Margin="7,0,0,0" HorizontalAlignment="Left" />
+            <TextBox DockPanel.Dock="Right" Width="200" VerticalContentAlignment="Center" Name="New_Job_Job_Number_TextBox" Padding="1,5" Margin="20,0,5,0" GotFocus="New_Job_Job_Number_TextBox_GotFocus" PreviewKeyDown="New_Job_Job_Number_TextBox_PreviewKeyDown" HorizontalAlignment="Right" VerticalAlignment="Center"/>
+        </DockPanel>
+        <TextBlock DockPanel.Dock="Right" Visibility="Collapsed" Width="200" Name="New_Job_Job_Number_Error_TextBlock" Text="Placeholder text" TextWrapping="Wrap" Foreground="Red" HorizontalAlignment="Right" Margin="0,0,5,3" />
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,5,0,0">
+            <Button Name="New_Job_Add_Button" Content="Add" Padding="15,5" Margin="0,5" Click="New_Job_Add_Button_Click" />
+            <Button Name="New_Job_Cancel_Button" Content="Cancel" Padding="15,5"  Margin="5" Click="New_Job_Cancel_Button_Click" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+        </StackPanel>
+
+    </StackPanel>
+</Window>

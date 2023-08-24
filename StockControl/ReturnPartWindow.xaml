@@ -1,0 +1,75 @@
+﻿<Window x:Class="StockControl.ReturnPartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StockControl"
+        mc:Ignorable="d"
+        Title="Return Part"
+        SizeToContent="WidthAndHeight" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="5">
+        <DockPanel Margin="0,3,0,8">
+            <TextBlock DockPanel.Dock="Left" Text="Part Number:" VerticalAlignment="Center" Margin="7,0,0,0" HorizontalAlignment="Left" />
+            <ComboBox
+                Name="Return_Part_Part_Number_ComboBox"
+                DockPanel.Dock="Right" Margin="40,0,5,0" Width="200"
+                HorizontalAlignment="Right" VerticalAlignment="Center"
+                IsEditable="True"
+                ItemsSource="{DynamicResource StockPartCollection}"
+                SelectedValuePath="Part_Number"
+                DisplayMemberPath="Part_Number" SelectionChanged="Return_Part_Part_Number_ComboBox_SelectionChanged"
+                PreviewKeyDown="ComboBox_PreviewKeyDown" Padding="3,5">
+            </ComboBox>
+        </DockPanel>
+        <TextBlock DockPanel.Dock="Right" Visibility="Collapsed" Width="200" Name="Return_Part_Part_Number_Error_TextBlock" Text="Placeholder text" TextWrapping="Wrap" Foreground="Red" HorizontalAlignment="Right" Margin="0,0,5,3" />
+
+        <DockPanel Margin="0,0,0,8">
+            <TextBlock DockPanel.Dock="Left" Text="Part Description:" VerticalAlignment="Center" Margin="7,0,0,0" HorizontalAlignment="Left" />
+            <ComboBox
+                Name="Return_Part_Part_Description_ComboBox"
+                DockPanel.Dock="Right" Margin="40,0,5,0" Width="200"
+                HorizontalAlignment="Right" VerticalAlignment="Center"
+                IsEditable="True"
+                ItemsSource="{DynamicResource StockPartCollection}"
+                SelectedValuePath="Part_Number"
+                DisplayMemberPath="Part_Description" SelectionChanged="Return_Part_Part_Description_ComboBox_SelectionChanged"
+                PreviewKeyDown="ComboBox_PreviewKeyDown" Padding="3,5">
+            </ComboBox>
+        </DockPanel>
+        <TextBlock DockPanel.Dock="Right" Visibility="Collapsed" Width="200" Name="Return_Part_Part_Description_Error_TextBlock" Text="Placeholder text" TextWrapping="Wrap" Foreground="Red" HorizontalAlignment="Right" Margin="0,0,5,3" />
+
+        <DockPanel Margin="0,0,0,8">
+            <TextBlock DockPanel.Dock="Left" Text="Job Number:" VerticalAlignment="Center" Margin="7,0,0,0" HorizontalAlignment="Left" />
+            <ComboBox
+                Name="Return_Part_Job_Number_ComboBox"
+                DockPanel.Dock="Right" Margin="40,0,5,0" Width="200"
+                HorizontalAlignment="Right" VerticalAlignment="Center"
+                IsEditable="True"
+                ItemsSource="{DynamicResource JobCollection}"
+                SelectedValuePath="Job_Number"
+                DisplayMemberPath="Job_Number"
+                SelectionChanged="Return_Part_Job_Number_ComboBox_SelectionChanged"
+                PreviewKeyDown="ComboBox_PreviewKeyDown" Padding="3,5">
+            </ComboBox>
+        </DockPanel>
+        <TextBlock DockPanel.Dock="Right" Visibility="Collapsed" Width="200" Name="Return_Part_Job_Number_Error_TextBlock" Text="Placeholder text" TextWrapping="Wrap" Foreground="Red" HorizontalAlignment="Right" Margin="0,0,5,3" />
+
+        <DockPanel Margin="0,0,0,8">
+            <TextBlock DockPanel.Dock="Left" Text="Job Status:" VerticalAlignment="Center" Margin="7,0,0,0" HorizontalAlignment="Left" />
+            <TextBlock Name="Return_Part_Job_Status_TextBlock" DockPanel.Dock="Right" Margin="40,0,5,0" Width="200" HorizontalAlignment="Right" VerticalAlignment="Center" Padding="1,5" />
+        </DockPanel>        
+
+        <DockPanel Margin="0,0,0,8">
+            <TextBlock DockPanel.Dock="Left" Text="Part Quantity:" VerticalAlignment="Center" Margin="7,0,0,0" HorizontalAlignment="Left" />
+            <TextBox Name="Return_Part_Part_Quantity_TextBox" Text="0" VerticalContentAlignment="Center" DockPanel.Dock="Right" Margin="40,0,5,0" Width="200" HorizontalAlignment="Right" VerticalAlignment="Center" PreviewKeyDown="TextBox_PreviewKeyDown" GotKeyboardFocus="TextBox_GotKeyboardFocus" Padding="1,5" />
+        </DockPanel>
+        <TextBlock DockPanel.Dock="Right" Visibility="Collapsed" Width="200" Name="Return_Part_Part_Quantity_Error_TextBlock" Text="Placeholder text" TextWrapping="Wrap" Foreground="Red" HorizontalAlignment="Right" Margin="0,0,5,3" />
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,5,0,0">
+            <Button Name="Return_Part_Return_Button" Content="Return" Padding="15,5" Margin="0,5" Click="Return_Part_Return_Button_Click" />
+            <Button Name="Return_Part_Cancel_Button" Content="Cancel" Padding="15,5" Margin="5" Click="Return_Part_Cancel_Button_Click" />
+        </StackPanel>       
+        
+    </StackPanel>
+</Window>
